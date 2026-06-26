@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF7E8" />
+    <title>CookBuddy AI</title>
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              colors: {
+                primary: { 100: "#FFE5B4", 300: "#FFB86B", 500: "#F59E4B" },
+                cream: { 50: "#FFF7E8", 100: "#FFEFD0" },
+                mint: { 100: "#CDEAC0", 400: "#9ED98C" },
+                sky: { 100: "#BDE0FE", 300: "#A8DADC" },
+                accent: { 500: "#FF6B6B", 600: "#E95656" },
+                yellow: { 100: "#FFD166", 300: "#FFC53D" },
+                cocoa: { 500: "#74665E", 600: "#5F5149", 800: "#342822", 900: "#241A16", 950: "#160F0C" },
+                peach: { 200: "#F6D1A5", 300: "#F1BA82" },
+              },
+              boxShadow: {
+                soft: "0 18px 50px rgba(95, 81, 73, 0.12)",
+                lift: "0 22px 70px rgba(95, 81, 73, 0.18)",
+                "inner-soft": "inset 0 -8px 18px rgba(255, 255, 255, 0.45)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
