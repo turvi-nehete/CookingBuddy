@@ -1,4 +1,5 @@
-﻿import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BackgroundDoodles from "./components/BackgroundDoodles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
@@ -18,6 +19,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <div className="app-shell">
+          <BackgroundDoodles />
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
