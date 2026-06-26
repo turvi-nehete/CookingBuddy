@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import EmptyState from "../components/EmptyState";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -27,22 +27,24 @@ function Favorites() {
   }
 
   return (
-    <main className="page-shell">
+    <main className="page-shell bg-cream-50/30">
       <section className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Saved recipes</p>
-          <h1>Your favorite little meals.</h1>
+        <div className="section-heading font-heading">
+          <span className="eyebrow">Saved recipes</span>
+          <h1 className="mt-2 font-bold text-cocoa-900">Your favorite little meals.</h1>
         </div>
 
         {error ? <p className="error-banner">{error}</p> : null}
         {loading ? <LoadingSpinner label="Loading favorites" /> : null}
 
         {!loading && favorites.length === 0 ? (
-          <EmptyState
-            title="No favorites yet"
-            message="Tap the heart on any recipe and it will appear here."
-            action={<Link to="/recipes" className="btn btn-primary">Browse recipes</Link>}
-          />
+          <div className="mt-10">
+            <EmptyState
+              title="No favorites yet"
+              message="Tap the heart on any recipe and it will appear here."
+              action={<Link to="/recipes" className="btn btn-primary shadow-sm">Browse recipes</Link>}
+            />
+          </div>
         ) : null}
 
         {!loading && favorites.length > 0 ? (

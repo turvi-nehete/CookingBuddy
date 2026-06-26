@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createRecipe } from "../api/recipes";
 
@@ -40,45 +40,45 @@ function AddRecipe() {
   }
 
   return (
-    <main className="page-shell">
+    <main className="page-shell bg-cream-50/30">
       <section className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Create recipe</p>
-          <h1>Add a dish to your kitchen.</h1>
+        <div className="section-heading font-heading">
+          <span className="eyebrow">Create recipe</span>
+          <h1 className="mt-2 text-cocoa-900 font-bold">Add a dish to your kitchen.</h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="recipe-form glass-panel">
-          {error ? <p className="error-banner md:col-span-2">{error}</p> : null}
+        <form onSubmit={handleSubmit} className="recipe-form bg-white border border-sage-200/50 shadow-soft font-heading">
+          {error ? <p className="error-banner md:col-span-3 text-sm">{error}</p> : null}
 
-          <label className="image-upload md:row-span-2">
+          <label className="image-upload md:row-span-2 border-2 border-dashed border-sage-300 bg-sage-50/40 hover:bg-sage-50 transition">
             <input name="image" type="file" accept="image/*" onChange={updateField} />
-            <span className="text-5xl">photo</span>
-            <strong>{form.image ? form.image.name : "Upload recipe image"}</strong>
-            <small>PNG or JPG works beautifully</small>
+            <span className="text-4xl text-sage-500">📸</span>
+            <strong className="text-cocoa-800 text-sm">{form.image ? form.image.name : "Upload recipe image"}</strong>
+            <small className="text-xs text-cocoa-500">PNG or JPG works beautifully</small>
           </label>
 
           <label className="field-label">
-            Recipe title
-            <input name="title" value={form.title} onChange={updateField} required className="field-input" />
+            <span className="text-cocoa-800 font-semibold text-sm">Recipe title</span>
+            <input name="title" value={form.title} onChange={updateField} required className="field-input font-body text-sm" placeholder="e.g. Grandma's Apple Pie" />
           </label>
           <label className="field-label">
-            Cuisine
-            <input name="cuisine" value={form.cuisine} onChange={updateField} required className="field-input" />
+            <span className="text-cocoa-800 font-semibold text-sm">Cuisine</span>
+            <input name="cuisine" value={form.cuisine} onChange={updateField} required className="field-input font-body text-sm" placeholder="e.g. Dessert, Italian" />
           </label>
           <label className="field-label">
-            Cooking time
-            <input name="cooking_time" type="number" min="1" value={form.cooking_time} onChange={updateField} required className="field-input" />
+            <span className="text-cocoa-800 font-semibold text-sm">Cooking time (mins)</span>
+            <input name="cooking_time" type="number" min="1" value={form.cooking_time} onChange={updateField} required className="field-input font-body text-sm" placeholder="e.g. 45" />
           </label>
           <label className="field-label md:col-span-2">
-            Ingredients
-            <textarea name="ingredients" value={form.ingredients} onChange={updateField} required className="field-input min-h-36" placeholder="One ingredient per line" />
+            <span className="text-cocoa-800 font-semibold text-sm">Ingredients</span>
+            <textarea name="ingredients" value={form.ingredients} onChange={updateField} required className="field-input font-body text-sm min-h-36" placeholder="One ingredient per line (e.g. 2 cups flour)" />
           </label>
           <label className="field-label md:col-span-2">
-            Instructions
-            <textarea name="instructions" value={form.instructions} onChange={updateField} required className="field-input min-h-44" placeholder="One step per line" />
+            <span className="text-cocoa-800 font-semibold text-sm">Instructions</span>
+            <textarea name="instructions" value={form.instructions} onChange={updateField} required className="field-input font-body text-sm min-h-44" placeholder="One step per line (e.g. Preheat the oven)" />
           </label>
 
-          <button type="submit" className="btn btn-primary btn-lg justify-center md:col-span-2" disabled={loading}>
+          <button type="submit" className="btn btn-primary btn-lg justify-center md:col-span-3 text-base shadow-sm mt-4" disabled={loading}>
             {loading ? "Saving recipe..." : "Submit recipe"}
           </button>
         </form>

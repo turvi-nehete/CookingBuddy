@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import EmptyState from "../components/EmptyState";
@@ -74,22 +74,22 @@ function Recipes() {
   }
 
   return (
-    <main className="page-shell">
+    <main className="page-shell bg-cream-50/30">
       <section className="section pt-10">
-        <div className="section-heading">
-          <p className="eyebrow">Recipe library</p>
-          <h1>Find something lovely to cook.</h1>
+        <div className="section-heading font-heading">
+          <span className="eyebrow">Recipe library</span>
+          <h1 className="mt-2 font-bold text-cocoa-900">Find something lovely to cook.</h1>
         </div>
         <SearchBar onSearch={handleSearch} placeholder="Search by ingredient, title, or cuisine" />
       </section>
 
       <section className="section pt-0">
-        <div className="flex gap-3 overflow-x-auto pb-2">
+        <div className="flex gap-3.5 overflow-x-auto pb-4 pt-1 select-none scrollbar-none">
           {categories.map((category) => (
             <CategoryCard
               key={category}
               title={category}
-              description={category === "All" ? "Everything" : "Filter"}
+              description={category === "All" ? "Everything" : `${category} mood`}
               active={activeCategory === category}
               onClick={() => setActiveCategory(category)}
             />
@@ -100,7 +100,9 @@ function Recipes() {
         {loading ? <LoadingSpinner label="Loading recipes" /> : null}
 
         {!loading && filteredRecipes.length === 0 ? (
-          <EmptyState title="No recipes found" message="Try another search or add a new recipe to your kitchen." />
+          <div className="mt-10">
+            <EmptyState title="No recipes found" message="Try another search or add a new recipe to your kitchen." />
+          </div>
         ) : null}
 
         {!loading && filteredRecipes.length > 0 ? (
